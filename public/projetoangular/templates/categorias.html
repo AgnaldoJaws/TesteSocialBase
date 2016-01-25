@@ -1,0 +1,38 @@
+<div ng-init="load()">
+<h3>Categorias</h3>
+
+<h3>Adicionar nova categoria</h3>
+
+<form class="form-horizontal" ng-submit="add(item)">
+    <div class="form-group">
+    
+        <label class="col-sm-2 control-label" for="nome">Nome:</label>
+        <div class="col-sm-5">
+        <textarea rows="4" cols="50" maxlength="140" ng-model="item.nome"  placeholder="Max 140" name="nome" id="nome" ></textarea>
+            
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a href="#/categorias" class="btn btn-default">Mostar comentário</a>
+        </div>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        
+        <th>Categoria</th>
+        
+    </thead>
+    <tbody>
+        <tr ng-repeat="registro in registros">
+            
+            <td>{{registro.nome}}</td>
+            
+        </tr>
+    </tbody>
+</table>
+</div>
