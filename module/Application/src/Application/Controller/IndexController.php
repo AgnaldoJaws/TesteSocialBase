@@ -11,45 +11,14 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Application\Entity\Categoria;
-use Application\Entity\Produto;
+
 
 class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
 
-        $em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
-        $repo = $em->getRepository("Application\Entity\Categoria");
-
-//        $categoria = new Categoria();
-//        $categoria->setNome("Laptops");
-//
-//        $em->persist($categoria); // preparar para gravar
-//        $em->flush(); // grava no banco
-//
-
-//        $categoriaService = $this->getServiceLocator()->get('Application\Service\Categoria');
-//        $categoriaService->delete(4);
-
-        $categorias = $repo->findAll();
-
-//        $categoria = $repo->find(1);
-//
-//        $produto = new Produto();
-//        $produto->setNome("Game A")
-//                ->setDescricao("O game A é muito legal!")
-//                ->setCategoria($categoria);
-//
-//        $em->persist($produto);
-//        $em->flush();
-
-        $produtoService = $this->getServiceLocator()->get('Application\Service\Produto');
-        //$produtoService->insert(array('nome'=>'Game B','categoriaId'=>1));
-        $produtoService->delete(2);
-
-
-        return new ViewModel(array('categorias'=>$categorias));
+                return new ViewModel();
     }
 
 }

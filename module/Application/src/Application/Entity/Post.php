@@ -42,17 +42,17 @@ class Post
     /**
      * @param mixed $nome
      */
-    public function setNome($nome)
+    public function setMensagem($mensagem)
     {
-        $this->nome = $nome;
+        $this->mensagem = $mensagem;
     }
 
     /**
      * @return mixed
      */
-    public function getNome()
+    public function getMensagem()
     {
-        return $this->nome;
+        return $this->mensagem;
     }
 
 

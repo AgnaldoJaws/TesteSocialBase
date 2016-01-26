@@ -3,9 +3,9 @@
 namespace Application\Service;
 
 use Doctrine\ORM\EntityManager;
-use Application\Entity\Categoria as CategoriaEntity;
+use Application\Entity\Post as PostEntity;
 
-class Categoria
+class Post
 {
 
     private $em;
@@ -17,13 +17,13 @@ class Categoria
 
     public function insert($nome)
     {
-        $categoriaEntity = new CategoriaEntity;
-        $categoriaEntity->setNome($nome);
+        $postEntity = new PostEntity();
+        $postEntity->setMensagem($nome);
 
-        $this->em->persist($categoriaEntity);
+        $this->em->persist($postEntity);
         $this->em->flush();
 
-        return $categoriaEntity;
+        return $postEntity;
     }
 
     public function update(array $data)
