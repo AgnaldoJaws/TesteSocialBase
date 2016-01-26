@@ -25,10 +25,14 @@ class Module
           'factories' => array(
               'Application\Service\Categoria' => function($sm) {
                       $em = $sm->get('Doctrine\ORM\EntityManager');
-                      $categoriaService = new \Application\Service\Post($em);
+                      $categoriaService = new \Application\Service\Categoria($em);
                       return $categoriaService;
                   },
-              
+              'Application\Service\Produto' => function($sm) {
+                      $em = $sm->get('Doctrine\ORM\EntityManager');
+                      $produtoService = new \Application\Service\Produto($em);
+                      return $produtoService;
+                  }
           )
         );
     }

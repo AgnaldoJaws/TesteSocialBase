@@ -5,10 +5,10 @@ namespace Application\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="Application\Entity\PostRepository")
+ * @ORM\Entity(repositoryClass="Application\Entity\CategoriaRepository")
  * @ORM\Table(name="categoria")
  */
-class Post
+class Categoria
 {
 
     /**

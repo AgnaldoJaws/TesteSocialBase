@@ -6,9 +6,9 @@ return array(
 				'DoctrineORMModule',
 				'DoctrineDataFixtureModule',
 				'JMSSerializerModule',
-				'Application'
-			//'SBUser',
-				//'SBRest'
+				'Application',
+				'SONUser',
+				'SONRest'
 		),
     // These are various options for the listeners attached to the ModuleManager
     'module_listener_options' => array(
