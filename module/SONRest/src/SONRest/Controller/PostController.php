@@ -10,7 +10,8 @@ class PostController extends AbstractRestfulController
     // get
     public function getList()
     {
-        
+        var_dump('agn');
+        exit();
         //Fazemos a chamada  do serviço Doctrine
         $em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');        
        //Recebemos os dados da entidade

@@ -6,10 +6,22 @@ return array(
     //de forma dinamica
     'router' => array(
         'routes' => array(
+            //Tota da API principal
             'rest' => array(
                 'type' => 'Segment',
                 'options' => array(
                     'route' => '/api/:controller[/:id[/]]',
+                    'constraints' => array(
+                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'         => '[a-zA-Z0-9_-]*'
+                    )
+                )
+            ),
+            //Rota para calculo Data
+            'nascimento' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/nascimento/:controller[/:id[/]]',
                     'constraints' => array(
                         'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'         => '[a-zA-Z0-9_-]*'
@@ -22,9 +34,12 @@ return array(
     //Definimos os controllers que serão invocados pelas rotas
     'controllers' => array(
         'invokables' => array(
+            //Post Controller
             'post' => 'SONRest\Controller\PostController',
+            //Categoria Controller
             'categoria' => 'SONRest\Controller\CategoriaController',
-            
+            // datadenascimento Controller
+            'datadenascimento' => 'SONRest\Controller\CategoriaController'   
                 
         )
     ),
