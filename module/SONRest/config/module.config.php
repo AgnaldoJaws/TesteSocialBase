@@ -1,14 +1,9 @@
 <?php
 
 return array(
-    'controllers' => array(
-        'invokables' => array(
-            'post' => 'SONRest\Controller\PostController'
-            
-        		
-        )
-    ),
-
+    
+    //Definimos uma rota do tipo segment, onde o roteamento é feito
+    //de forma dinamica
     'router' => array(
         'routes' => array(
             'rest' => array(
@@ -21,6 +16,16 @@ return array(
                     )
                 )
             )
+        )
+    ),
+
+    //Definimos os controllers que serão invocados pelas rotas
+    'controllers' => array(
+        'invokables' => array(
+            'post' => 'SONRest\Controller\PostController',
+            'categoria' => 'SONRest\Controller\CategoriaController',
+            
+                
         )
     ),
 

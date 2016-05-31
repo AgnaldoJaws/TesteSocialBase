@@ -4,16 +4,18 @@ namespace SONRest\Controller;
 
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Zend\View\Model\JsonModel;
+
 class PostController extends AbstractRestfulController
 {
-
     // get
     public function getList()
     {
-        $em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
-
+        
+        //Fazemos a chamada  do serviço Doctrine
+        $em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');        
+       //Recebemos os dados da entidade
         $data = $em->getRepository('Application\Entity\Post')->findAll();
-
+        
         return $data;
 
     }

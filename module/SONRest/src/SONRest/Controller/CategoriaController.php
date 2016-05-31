@@ -4,23 +4,30 @@ namespace SONRest\Controller;
 
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Zend\View\Model\JsonModel;
+
 class CategoriaController extends AbstractRestfulController
 {
 
+    /*
+    {        
+        "nome":"Categoria"           
+    }
+    */
     // get
     public function getList()
     {
+         //Fazemos a chamada  do serviço Doctrine
         $em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
-
+         //Recebemos os dados da entidade
         $data = $em->getRepository('Application\Entity\Categoria')->findAll();
 
         return $data;
-
     }
 
     // get
     public function get($id)
     {
+
         $em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
 
         $data = $em->getRepository('Application\Entity\Categoria')->find($id);
@@ -31,8 +38,9 @@ class CategoriaController extends AbstractRestfulController
     // post
     public function create($data)
     {
-        $serviceCategoria = $this->getServiceLocator()->get('Application\Service\Categoria');
-        $nome = $data['nome'];
+    
+    $serviceCategoria = $this->getServiceLocator()->get('Application\Service\Categoria');
+    $nome = $data['nome'];
 
         $categoria = $serviceCategoria->insert($nome);
         if($categoria) {
@@ -40,7 +48,6 @@ class CategoriaController extends AbstractRestfulController
         } else {
             return array('success'=>false);
         }
-
     }
 
     // put
