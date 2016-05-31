@@ -17,14 +17,16 @@ class DataDeNascimentoController extends AbstractRestfulController
      // post
     public function create($data)    
     {
-    //Instaanciamos o Serviço de categoria
+    //Instanciamos o Serviço de categoria
     $serviceCategoria = $this->getServiceLocator()->get('Application\Service\Categoria');
     //Pegamos o valor passado pela rota
     $nome = $data['data_valor'];
     //Fazemos a inserção do objeto
     $categoria = $serviceCategoria->insert($nome);
 
-        if($categoria) {           
+        //Se a inserção for verdadeira
+        if($categoria) {
+        //Pegamos o resultado do calculo e convertemos em um array de jason           
            return new JsonModel (
                         array('idade'   =>   $categoria->y,
                         'anos'          =>   $categoria->y,
@@ -36,7 +38,7 @@ class DataDeNascimentoController extends AbstractRestfulController
             return array('success'=>false);
         }
     }
-    
+
     // get
     public function getList()
     {
