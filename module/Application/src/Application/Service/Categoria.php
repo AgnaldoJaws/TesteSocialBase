@@ -3,7 +3,7 @@
 namespace Application\Service;
 
 use Doctrine\ORM\EntityManager;
-use Application\Entity\Categoria as DataValorEntity;
+use Application\Entity\Categoria as CategoriaEntity;
 
 class Categoria
 {
@@ -17,13 +17,16 @@ class Categoria
 
     public function insert($nome)
     {
-         
-
-        $categoriaEntity = new DataValorEntity;
+        //Instanciamos a entidade
+        $categoriaEntity = new CategoriaEntity;
+        //setamos os valores a serem persistidos
         $categoriaEntity->setDataValor($nome);
-
-
+        //Execultamos a persistencia dos dados
         $this->em->persist($categoriaEntity);
+
+        /*Tendei transformar esse trecho em uma função
+        mas tive alguns probleminhas e como estou meio sem 
+        tempo vou deixar assim mesmo*/
 
          //Pegamos a data de aniversário
         $atual = $categoriaEntity->getDataValor($nome);
@@ -35,10 +38,8 @@ class Categoria
         //Com o metodo diff retornamos a diferença entre duas datas distintas
         $intervalo = $data1->diff( $now );
 
+        //Retornamos o resultado do calculo
         return $intervalo;
-
-    }
-
-    
+    }    
 
 } 

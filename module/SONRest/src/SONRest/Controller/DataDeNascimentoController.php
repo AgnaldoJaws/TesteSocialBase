@@ -10,42 +10,19 @@ class DataDeNascimentoController extends AbstractRestfulController
 
     /*
     {        
-        "nome":"Categoria"           
+        "data_valor":"1993-02-17"           
     }
     */
-    // get
-    public function getList()
+
+     // post
+    public function create($data)    
     {
-         //Fazemos a chamada  do serviço Doctrine
-        $em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
-         //Recebemos os dados da entidade
-        $data = $em->getRepository('Application\Entity\Categoria')->findAll();
-
-        return $data;
-    }
-
-    // get
-    public function get($id)
-    {
-
-        $em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
-
-        $data = $em->getRepository('Application\Entity\Categoria')->find($id);
-
-        return $data;
-    }
-
-    // post
-    public function create($data)
-    {
-
-
-$serviceCategoria = $this->getServiceLocator()->get('Application\Service\Categoria');
-
-
+    //Instaanciamos o Serviço de categoria
+    $serviceCategoria = $this->getServiceLocator()->get('Application\Service\Categoria');
+    //Pegamos o valor passado pela rota
     $nome = $data['data_valor'];
-
-        $categoria = $serviceCategoria->insert($nome);
+    //Fazemos a inserção do objeto
+    $categoria = $serviceCategoria->insert($nome);
 
         if($categoria) {           
            return new JsonModel (
@@ -59,28 +36,31 @@ $serviceCategoria = $this->getServiceLocator()->get('Application\Service\Categor
             return array('success'=>false);
         }
     }
+    
+    // get
+    public function getList()
+    {
+        
+    }
+
+    // get
+    public function get($id)
+    {
+
+    }
+
+   
 
     // put
     public function update($id, $data)
     {
-        $serviceCategoria = $this->getServiceLocator()->get('Application\Service\Categoria');
-        $param['id'] = $id;
-        $param['nome'] = $data['nome'];
-
-        $categoria = $serviceCategoria->update($param);
-        if($categoria) {
-            return $categoria;
-        } else {
-            return array('success'=>false);
-        }
+        
     }
 
     // delete
     public function delete($id)
     {
-        $serviceCategoria = $this->getServiceLocator()->get('Application\Service\Categoria');
-        $result = $serviceCategoria->delete($id);
-        if($result) return $result;
+        
     }
 
 } 
