@@ -1,35 +1,32 @@
 <?php
-
 namespace Application\Entity;
+
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="Application\Entity\CategoriaRepository")
- * @ORM\Table(name="categoria")
+ * Date1
+ *
+ * @ORM\Table(name="date1")
+ * @ORM\Entity
  */
 class Categoria
 {
-
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $categoria_id;
+    private $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @var string
+     *
+     * @ORM\Column(name="data_valor", type="string", length=15, nullable=false)
      */
-    private $nome;
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+    private $dataValor;
 
     /**
      * @return mixed
@@ -40,20 +37,21 @@ class Categoria
     }
 
     /**
-     * @param mixed $nome
+     * @param mixed $dataValor
      */
-    public function setNome($nome)
+    public function setDataValor($dataValor)
     {
-        $this->nome = $nome;
+        $this->dataValor = $dataValor;
     }
 
     /**
      * @return mixed
      */
-    public function getNome()
+    public function getDataValor()
     {
-        return $this->nome;
+        return $this->dataValor;
     }
 
 
-} 
+
+}

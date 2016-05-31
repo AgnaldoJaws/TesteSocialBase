@@ -39,7 +39,7 @@ return array(
             //Categoria Controller
             'categoria' => 'SONRest\Controller\CategoriaController',
             // datadenascimento Controller
-            'datadenascimento' => 'SONRest\Controller\CategoriaController'   
+            'datadenascimento' => 'SONRest\Controller\DataDeNascimentoController'   
                 
         )
     ),

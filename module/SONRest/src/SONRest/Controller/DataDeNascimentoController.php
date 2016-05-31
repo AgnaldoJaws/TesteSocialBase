@@ -5,7 +5,7 @@ namespace SONRest\Controller;
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Zend\View\Model\JsonModel;
 
-class CategoriaController extends AbstractRestfulController
+class DataDeNascimentoController extends AbstractRestfulController
 {
 
     /*
@@ -38,14 +38,24 @@ class CategoriaController extends AbstractRestfulController
     // post
     public function create($data)
     {
-    
-    $serviceCategoria = $this->getServiceLocator()->get('Application\Service\Categoria');
+
+
+$serviceCategoria = $this->getServiceLocator()->get('Application\Service\Categoria');
+
+
     $nome = $data['data_valor'];
 
         $categoria = $serviceCategoria->insert($nome);
-        if($categoria) {
-            return $categoria;
-        } else {
+
+        if($categoria) {           
+           return new JsonModel (
+                        array('idade'   =>   $categoria->y,
+                        'anos'          =>   $categoria->y,
+                        'meses'         =>   $categoria->y*12,
+                        'dias'          =>   $categoria->y*365));
+        } 
+        else 
+        {
             return array('success'=>false);
         }
     }

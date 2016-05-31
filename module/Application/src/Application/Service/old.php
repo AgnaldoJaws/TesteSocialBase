@@ -5,7 +5,7 @@ namespace Application\Service;
 use Doctrine\ORM\EntityManager;
 use Application\Entity\Categoria as DataValorEntity;
 
-class Categoria
+class DataValor
 {
 
     private $em;
